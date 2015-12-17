@@ -475,6 +475,13 @@ static char ja_kvoContext;
     return NO;
 }
 
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+    if ([gestureRecognizer isMemberOfClass:[UIScreenEdgePanGestureRecognizer class]]) {
+        return YES;
+    }
+    return NO;
+}
+
 #pragma mark - Pan Gestures
 
 - (void)_addPanGestureToView:(UIView *)view {
